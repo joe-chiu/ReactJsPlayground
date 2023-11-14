@@ -17,7 +17,7 @@ interface ChatListItemProps {
 	unread? : boolean
 }
 
-const useItemStyles = makeStyles({
+const useCustomStyles = makeStyles({
 	root: {
 		paddingLeft: "5px",
 		paddingRight: "5px",
@@ -39,13 +39,13 @@ const ChatListItem = ({
 	unread = false
 	}: ChatListItemProps) => {
 
-	const itemStyle = useItemStyles();		
+	const customStyle = useCustomStyles();		
 	return (
 		<TreeItem itemType="leaf">
 			<TreeItemPersonaLayout
-				className={itemStyle.root}
+				className={customStyle.root}
 				main={{
-					className: itemStyle.main,
+					className: customStyle.main,
 					children:
 						<div className={`flex flex-row items-baseline ${unread && "font-bold"}`}>
 							<p className="flex-grow">{displayName}</p>
@@ -58,7 +58,7 @@ const ChatListItem = ({
 						badge={{ status: status }}
 					/>}
 				description={{
-					className: itemStyle.description,
+					className: customStyle.description,
 					children:
 						<p className={`line-clamp-1 text-xs text-gray-500 ${unread && "font-bold"}`}>{lastMessagePreview}</p>
 				}}
