@@ -21,7 +21,6 @@ const ComposeIcon = bundleIcon(ComposeFilled, ComposeRegular);
 const VideoIcon = bundleIcon(VideoFilled, VideoRegular);
 const FilterIcon = bundleIcon(FilterFilled, FilterRegular);
 
-
 import ChatListItem from "./ChatListItem";
 
 const ChatList = () => {
@@ -29,16 +28,17 @@ const ChatList = () => {
     <div className="flex flex-col w-72 h-full bg-blue-100 shadow-lg">
       <div className="h-14 flex flex-row items-center gap-2 p-3">
         <p className="flex-grow w-52 text-lg font-bold">Chat</p>
-        <Button size="medium" className="h-8" icon={<FilterIcon />} />
+        <Button size="medium" appearance="transparent" className="h-8" icon={<FilterIcon />} />
         <Button size="medium" className="h-8" icon={<VideoIcon />} />
         <Button size="medium" className="h-8" icon={<ComposeIcon />} />
       </div>
       <div className="flex-grow">
-        <Accordion multiple openItems={["1", "2"]} >
+        <Accordion multiple collapsible defaultOpenItems={["1", "2"]}>
           <AccordionItem value="1">
             <AccordionHeader size="small">Pinned</AccordionHeader>
             <AccordionPanel>
-              <ChatListItem />
+            <ChatListItem />
+              <ChatListItem displayName="John Smith" unread />
               <ChatListItem />
               <ChatListItem />
             </AccordionPanel>
@@ -46,6 +46,8 @@ const ChatList = () => {
           <AccordionItem value="2">
             <AccordionHeader size="small">Recent</AccordionHeader>
             <AccordionPanel>
+              <ChatListItem />
+              <ChatListItem />
               <ChatListItem />
               <ChatListItem />
               <ChatListItem />

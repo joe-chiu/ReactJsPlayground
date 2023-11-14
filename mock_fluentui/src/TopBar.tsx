@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { 
   Input, 
   Button,
-  Avatar,
 } from "@fluentui/react-components";
+
+import TeamsMenu from "./TeamsMenu";
 
 import {
   bundleIcon,
   SearchRegular,
   SearchFilled,
-  MoreHorizontalRegular,
-  MoreHorizontalFilled,
   DismissRegular,
   DismissFilled,
   MaximizeRegular,
@@ -23,9 +22,9 @@ import {
   SubtractRegular,
   SubtractFilled,
 } from "@fluentui/react-icons";
+import UserMenu from "./UserMenu";
 
 const SearchIcon = bundleIcon(SearchFilled, SearchRegular);
-const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
 const LeftArrowIcon = bundleIcon(ChevronLeftFilled, ChevronLeftRegular);
 const RightArrowIcon = bundleIcon(ChevronRightFilled, ChevronRightRegular);
 const DismissIcon = bundleIcon(DismissFilled, DismissRegular);
@@ -33,33 +32,33 @@ const MaximizeIcon = bundleIcon(MaximizeFilled, MaximizeRegular);
 const MinimizeIcon = bundleIcon(SubtractFilled, SubtractRegular);
 
 const TopBar = () => {
+  const [searchPlaceholderText, setSearchPlaceholderText] = useState("Search");
+
   return (
     <div className="h-10 flex flex-row items-center bg-blue-200 border-b-2 border-indigo-200" >
-      <div className="border border-black">
-        <div className="w-14 text-center bg-blue-300">
-          Logo
-        </div>
+      <div className="">
       </div>
+      <div className="flex flex-row w-52 justify-start"></div>
       <div className="flex-grow flex place-content-center">
-        <Button appearance="subtle" icon={<LeftArrowIcon />} />
-        <Button appearance="subtle" icon={<RightArrowIcon />} />
-        <Input className="w-80" size="medium" placeholder="Search" contentBefore={<SearchIcon />} />
+        <Button appearance="transparent" icon={<LeftArrowIcon />} />
+        <Button appearance="transparent" icon={<RightArrowIcon />} />
+        <Input className="w-2/5" size="medium" placeholder={searchPlaceholderText} contentBefore={<SearchIcon />}
+              onFocus={() => setSearchPlaceholderText("Search for people, chats and communities")} 
+              onBlur={() => setSearchPlaceholderText("Search")} />
       </div>
-      <div className="flex">
-        <Button appearance="subtle" icon={<MoreIcon />} />
-        <Avatar
-          name="Katri Athokas"
-          badge={{status: "available"}}
-          image={{
-            src: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
-          }} 
-        />
-        <Button appearance="subtle" icon={<MinimizeIcon />} />
-        <Button appearance="subtle" icon={<MaximizeIcon />} />
-        <Button appearance="subtle" icon={<DismissIcon />} />
+      <div className="flex flex-row w-52 justify-end">
+        <TeamsMenu />
+        <UserMenu />
+        <Button appearance="transparent" icon={<MinimizeIcon />} />
+        <Button appearance="transparent" icon={<MaximizeIcon />} />
+        <Button appearance="transparent" icon={<DismissIcon />} />
       </div>
     </div>
   );
 };
 
 export default TopBar;
+
+function setState(arg0: string): [any, any] {
+  throw new Error("Function not implemented.");
+}
