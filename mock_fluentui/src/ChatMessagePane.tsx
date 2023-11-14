@@ -25,7 +25,7 @@ const EmojiIcon = bundleIcon(EmojiFilled, EmojiRegular);
 const ChatMessagePane = () => {
   return (
     <div className="flex-grow flex flex-col">
-      <div className="flex-grow">
+      <div id="chatMessageArea" className="flex-grow">
         <Chat>
           <ChatMessage 
             avatar={<Avatar name="Ashley McCarthy" badge={{ status: 'available' }}                
@@ -34,10 +34,11 @@ const ChatMessagePane = () => {
           </ChatMessage>
           <ChatMyMessage>Nice to meet you!</ChatMyMessage>
           <ChatMessage details={"Ashley McCarthy"} avatar={<Avatar name="Ashley McCarthy" badge={{ status: 'available' }} />}>Hello I am Ashley</ChatMessage>
-          <ChatMessage>Hello I am Ashley</ChatMessage>
+          <ChatMessage>More messages</ChatMessage>
+          <ChatMessage>More messages</ChatMessage>
         </Chat>                          
       </div>
-      <div className="h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
+      <div id="composeArea" className="h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
         <div className="flex-grow">
           <Input className="w-full" placeholder="Type a new message" contentAfter={
             <div>

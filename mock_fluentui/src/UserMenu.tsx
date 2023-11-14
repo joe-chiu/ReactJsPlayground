@@ -27,7 +27,7 @@ const ContactCardIcon = bundleIcon(ContactCardFilled, ContactCardRegular);
  
 const UserMenu = () => {
   return (
-    <Menu>
+    <Menu positioning={"below"}>
       <MenuTrigger disableButtonEnhancement>
         <Button appearance="transparent" size="small">
           <Avatar

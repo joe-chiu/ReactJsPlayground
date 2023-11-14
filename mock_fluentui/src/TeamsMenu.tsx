@@ -43,7 +43,7 @@ const AboutSubMenu = () => {
  
 const TeamsMenu = () => {
   return (
-    <Menu>
+    <Menu positioning={"below"}>
       <MenuTrigger disableButtonEnhancement>
         <Button appearance="transparent" icon={<MoreIcon />} />
       </MenuTrigger>
