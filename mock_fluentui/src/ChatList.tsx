@@ -1,11 +1,9 @@
 import React from "react";
 import {
-  Avatar,
   Button,
   Tree, 
   TreeItem, 
   TreeItemLayout,
-  TreeItemPersonaLayout,
 } from "@fluentui/react-components";
 
 import {

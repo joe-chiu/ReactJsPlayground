@@ -3,7 +3,6 @@ import React from "react";
 import {
     Tab,
     TabList,
-    TabListProps,
     CounterBadge,
     Button,
   } from "@fluentui/react-components";
