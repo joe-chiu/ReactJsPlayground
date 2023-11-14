@@ -1,6 +1,7 @@
-.vs
+.vscode
 bin
 obj
-node_modules/
-build/
-dist/
+node_modules
+build
+dist
+
