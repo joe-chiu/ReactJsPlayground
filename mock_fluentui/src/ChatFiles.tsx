@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Button,
   PresenceBadgeStatus,
@@ -164,7 +162,7 @@ const columns: TableColumnDefinition<Item>[] = [
   }),
 ];
 
-const ChatFiles = () => {
+export const ChatFiles = () => {
   return (
     <div className="flex flex-col p-2 w-full">
       <div className="pb-2">
@@ -203,5 +201,3 @@ const ChatFiles = () => {
 
   );
 };
-
-export default ChatFiles;

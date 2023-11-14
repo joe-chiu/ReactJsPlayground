@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode, useState } from "react";
+import { render } from "react-dom";
 import "./styles.css";
 
 import {
@@ -7,10 +7,10 @@ import {
   webLightTheme,
 } from "@fluentui/react-components";
 
-import LeftNav from "./LeftNav";
-import TopBar from "./TopBar";
-import ChatList from "./ChatList";
-import ChatContent from "./ChatContent";
+import { LeftNav } from "./LeftNav";
+import { TopBar } from "./TopBar";
+import { ChatList } from "./ChatList";
+import { ChatContent } from "./ChatContent";
 
 enum TeamsTab {
   Activity,
@@ -41,10 +41,10 @@ const TeamsApp = () => {
   );
 };
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <TeamsApp />
-  </React.StrictMode>
+  </StrictMode>
   ,
   document.getElementById("root")
 );

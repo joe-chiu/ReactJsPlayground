@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Tree, 
@@ -20,9 +19,9 @@ const ComposeIcon = bundleIcon(ComposeFilled, ComposeRegular);
 const VideoIcon = bundleIcon(VideoFilled, VideoRegular);
 const FilterIcon = bundleIcon(FilterFilled, FilterRegular);
 
-import ChatListItem from "./ChatListItem";
+import { ChatListItem } from "./ChatListItem";
 
-const ChatList = () => {
+export const ChatList = () => {
   return (
     <div className="flex flex-col w-72 h-full bg-blue-100 shadow-lg">
       <div className="h-14 flex flex-row items-center gap-2 p-3">
@@ -56,5 +55,3 @@ const ChatList = () => {
     </div>
   );
 };
-
-export default ChatList;

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { 
   Input, 
   Button,
 } from "@fluentui/react-components";
-
-import TeamsMenu from "./TeamsMenu";
 
 import {
   bundleIcon,
@@ -22,7 +20,9 @@ import {
   SubtractRegular,
   SubtractFilled,
 } from "@fluentui/react-icons";
-import UserMenu from "./UserMenu";
+
+import { UserMenu } from "./UserMenu";
+import { TeamsMenu } from "./TeamsMenu";
 
 const SearchIcon = bundleIcon(SearchFilled, SearchRegular);
 const LeftArrowIcon = bundleIcon(ChevronLeftFilled, ChevronLeftRegular);
@@ -31,7 +31,7 @@ const DismissIcon = bundleIcon(DismissFilled, DismissRegular);
 const MaximizeIcon = bundleIcon(MaximizeFilled, MaximizeRegular);
 const MinimizeIcon = bundleIcon(SubtractFilled, SubtractRegular);
 
-const TopBar = () => {
+export const TopBar = () => {
   const [searchPlaceholderText, setSearchPlaceholderText] = useState("Search");
 
   return (
@@ -56,9 +56,3 @@ const TopBar = () => {
     </div>
   );
 };
-
-export default TopBar;
-
-function setState(arg0: string): [any, any] {
-  throw new Error("Function not implemented.");
-}

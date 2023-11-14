@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import ChatHeader from "./ChatHeader";
-import ChatInfoPane from "./ChatInfoPane";
-import ChatMessagePane from "./ChatMessagePane";
-import ChatFiles from "./ChatFiles";
+import { ChatHeader } from "./ChatHeader";
+import { ChatInfoPane } from "./ChatInfoPane";
+import { ChatMessagePane } from "./ChatMessagePane";
+import { ChatFiles } from "./ChatFiles";
 
 enum ChatTab {
   Chat,
   Files
 }
 
-const ChatContent = () => {
+export const ChatContent = () => {
   const [chatTab, setChatTab] = useState(ChatTab[ChatTab.Chat]);
   const [showInfoPane, setShowInfoPane] = useState(true);
   
@@ -34,5 +34,3 @@ const ChatContent = () => {
     </div>
   );
 };
-    
-export default ChatContent;  

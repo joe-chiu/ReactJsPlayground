@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
 	Avatar, 
 	PresenceBadgeStatus,
@@ -30,7 +28,7 @@ const useCustomStyles = makeStyles({
 	}
 });
 
-const ChatListItem = ({
+export const ChatListItem = ({
 	displayName = "Katri Athokas",
 	status = "available",
 	imageUrl = "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
@@ -66,5 +64,3 @@ const ChatListItem = ({
 		</TreeItem>
 	);
 };
-
-export default ChatListItem;

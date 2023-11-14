@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
     Tab,
     TabList,
@@ -37,7 +35,7 @@ export interface TeamsLeftNavProps {
   onAppSelect?: (app: string) => void;
 }
 
-const LeftNav = (props: TeamsLeftNavProps) => {
+export const LeftNav = (props: TeamsLeftNavProps) => {
   return (
     <div className="flex flex-col w-16 h-full bg-blue-200">
       <div className="flex-grow flex flex-col">
@@ -94,5 +92,3 @@ const LeftNav = (props: TeamsLeftNavProps) => {
     </div>
   );
 };
-
-export default LeftNav;

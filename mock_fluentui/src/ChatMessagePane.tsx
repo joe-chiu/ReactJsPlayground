@@ -1,12 +1,14 @@
-import React from "react";
-
 import {
   Avatar,
   Button,
   Input,
 } from "@fluentui/react-components";
 
-import { Chat, ChatMessage, ChatMyMessage } from '@fluentui-contrib/react-chat';
+import { 
+  Chat, 
+  ChatMessage, 
+  ChatMyMessage 
+} from '@fluentui-contrib/react-chat';
 
 import {
   bundleIcon,
@@ -22,7 +24,7 @@ const SendIcon = bundleIcon(SendFilled, SendRegular);
 const AddIcon = bundleIcon(AddFilled, AddRegular);
 const EmojiIcon = bundleIcon(EmojiFilled, EmojiRegular);
 
-const ChatMessagePane = () => {
+export const ChatMessagePane = () => {
   return (
     <div className="flex-grow flex flex-col">
       <div id="chatMessageArea" className="flex-grow">
@@ -54,5 +56,3 @@ const ChatMessagePane = () => {
     </div>
   );
 };
-          
-export default ChatMessagePane;    

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { 
   Button,
   Menu,
@@ -41,7 +39,7 @@ const AboutSubMenu = () => {
   );
 };
  
-const TeamsMenu = () => {
+export const TeamsMenu = () => {
   return (
     <Menu positioning={"below"}>
       <MenuTrigger disableButtonEnhancement>
@@ -63,5 +61,3 @@ const TeamsMenu = () => {
     </Menu>
   );
 };
-
-export default TeamsMenu;  

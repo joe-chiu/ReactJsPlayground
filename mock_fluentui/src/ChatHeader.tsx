@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import {
   Avatar,
@@ -27,7 +27,7 @@ export interface ChatHeaderProps {
   onInfoPaneToggle?: (infoPaneShown: boolean) => void,
 }
 
-const ChatHeader = ({startWithInfoPane = true, ...props} : ChatHeaderProps) => {
+export const ChatHeader = ({startWithInfoPane = true, ...props} : ChatHeaderProps) => {
   const [infoPaneState, setInfoPaneState] = useState(startWithInfoPane);
 
   return (
@@ -65,5 +65,3 @@ const ChatHeader = ({startWithInfoPane = true, ...props} : ChatHeaderProps) => {
     </div>
   );
 };
-    
-export default ChatHeader;  

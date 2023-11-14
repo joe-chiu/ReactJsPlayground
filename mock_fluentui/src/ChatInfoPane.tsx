@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Avatar,
   AvatarGroup,
@@ -46,7 +44,7 @@ const names = [
   "Elliot Woodward",
 ];
 
-const ChatInfoPane = () => {
+export const ChatInfoPane = () => {
   const { inlineItems, overflowItems } = partitionAvatarGroupItems({
     items: names,
   });
@@ -90,5 +88,3 @@ const ChatInfoPane = () => {
     </div>
   );
 };
-      
-export default ChatInfoPane;  

@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Avatar,
   Button,
@@ -25,7 +23,7 @@ import {
 
 const ContactCardIcon = bundleIcon(ContactCardFilled, ContactCardRegular);
  
-const UserMenu = () => {
+export const UserMenu = () => {
   return (
     <Menu positioning={"below"}>
       <MenuTrigger disableButtonEnhancement>
@@ -85,5 +83,3 @@ const UserMenu = () => {
     </Menu>
   );
 };
-
-export default UserMenu;  

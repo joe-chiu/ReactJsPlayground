@@ -1,7 +1,8 @@
 {
-  "name": "react-from-scratch",
+  "name": "mock-fluentui-teams",
+  "side-effects": false,
   "version": "1.0.0",
-  "description": "An exercise to create mock app ui using Fluient UI 2",
+  "description": "An exercise to create a mock Teams UI using Fluent UI",
   "scripts": {
     "build": "webpack --config webpack.production.js",
     "start": "webpack serve --config webpack.development.js"
