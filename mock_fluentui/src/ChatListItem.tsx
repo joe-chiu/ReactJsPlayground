@@ -3,6 +3,9 @@ import React from "react";
 import {
 	Avatar, 
 	PresenceBadgeStatus,
+	TreeItem,
+	TreeItemPersonaLayout,
+	makeStyles,
 } from "@fluentui/react-components";
 
 interface ChatListItemProps {
@@ -14,6 +17,19 @@ interface ChatListItemProps {
 	unread? : boolean
 }
 
+const useItemStyles = makeStyles({
+	root: {
+		paddingLeft: "5px",
+		paddingRight: "5px",
+	},
+	main: {
+		paddingTop: "2px",
+	},
+	description: {
+		paddingBottom: "2px",
+	}
+});
+
 const ChatListItem = ({
 	displayName = "Katri Athokas",
 	status = "available",
@@ -22,23 +38,32 @@ const ChatListItem = ({
 	lastMessageTime = "11:40 AM",
 	unread = false
 	}: ChatListItemProps) => {
+
+	const itemStyle = useItemStyles();		
 	return (
-		<div className="flex flex-row">
-			<Avatar
-				name={displayName}
-				badge={{status: status}}
-				image={{
-					src: imageUrl,
-				}} 
+		<TreeItem itemType="leaf">
+			<TreeItemPersonaLayout
+				className={itemStyle.root}
+				main={{
+					className: itemStyle.main,
+					children:
+						<div className={`flex flex-row items-baseline ${unread && "font-bold"}`}>
+							<p className="flex-grow">{displayName}</p>
+							<p className="text-xs text-gray-500">{lastMessageTime}</p>
+						</div>					
+				}}
+				media={
+					<Avatar 
+						image={{ src: imageUrl }} 
+						badge={{ status: status }}
+					/>}
+				description={{
+					className: itemStyle.description,
+					children:
+						<p className={`line-clamp-1 text-xs text-gray-500 ${unread && "font-bold"}`}>{lastMessagePreview}</p>
+				}}
 			/>
-			<div className={`flex flex-col pl-2 ${unread && "font-bold"}`} >
-				<div className="flex flex-row items-baseline">
-					<p className="flex-grow">{displayName}</p>
-					<p className="text-xs text-gray-500">{lastMessageTime}</p>
-				</div>
-				<p className="line-clamp-1 text-xs text-gray-500">{lastMessagePreview}</p>
-			</div>
-		</div>
+		</TreeItem>
 	);
 };
 

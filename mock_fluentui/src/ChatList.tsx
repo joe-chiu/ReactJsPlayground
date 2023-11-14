@@ -1,10 +1,11 @@
 import React from "react";
 import {
-  Accordion,
-  AccordionHeader,
-  AccordionItem,
-  AccordionPanel,
+  Avatar,
   Button,
+  Tree, 
+  TreeItem, 
+  TreeItemLayout,
+  TreeItemPersonaLayout,
 } from "@fluentui/react-components";
 
 import {
@@ -33,28 +34,26 @@ const ChatList = () => {
         <Button size="medium" className="h-8" icon={<ComposeIcon />} />
       </div>
       <div className="flex-grow">
-        <Accordion multiple collapsible defaultOpenItems={["1", "2"]}>
-          <AccordionItem value="1">
-            <AccordionHeader size="small">Pinned</AccordionHeader>
-            <AccordionPanel>
-            <ChatListItem />
-              <ChatListItem displayName="John Smith" unread />
+        <Tree defaultOpenItems={["pinned", "recent"]}>
+          <TreeItem itemType="branch" value="pinned">
+            <TreeItemLayout><p className="text-sm">Pinned</p></TreeItemLayout>
+            <Tree className="">
+              <ChatListItem unread />
               <ChatListItem />
               <ChatListItem />
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem value="2">
-            <AccordionHeader size="small">Recent</AccordionHeader>
-            <AccordionPanel>
-              <ChatListItem />
+            </Tree>
+          </TreeItem>
+          <TreeItem itemType="branch" value="recent">
+            <TreeItemLayout><p className="text-sm">Recent</p></TreeItemLayout>
+            <Tree>
               <ChatListItem />
               <ChatListItem />
               <ChatListItem />
               <ChatListItem />
               <ChatListItem />
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
+            </Tree>
+          </TreeItem>
+        </Tree>        
       </div>
     </div>
   );
