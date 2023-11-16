@@ -12,3 +12,7 @@
  create bundle info: npx webpack --config webpack.production.js --profile --json > stats.json
  visualize bundle info: npx webpack-bundle-analyzer stats.json build
  https://chrisbateman.github.io/webpack-visualizer/
+
+ # Todo
+ people card, compose tool buttons, rich/simple compose, better message pane, reaction, chat list menu, settings, channel view
+ activity view, calendar (data grid), lazy loading
