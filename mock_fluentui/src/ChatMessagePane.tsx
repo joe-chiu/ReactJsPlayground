@@ -8,8 +8,9 @@ import {
 
 import {
   ChatMessage,
+  FluentThemeProvider,
   MessageStatus, 
-  MessageThread, 
+  MessageThread,
 } from "@azure/communication-react";
 
 import {
@@ -84,7 +85,12 @@ const GetHistoryChatMessages = (): ChatMessage[] => {
       attached: "bottom",
       contentType: 'text'
     },
-    /*
+  ];
+};
+
+const GetHistoryChatMessagesScroll = (): ChatMessage[] => {
+  return [
+    ...GetHistoryChatMessages(),
     {
       messageType: 'chat',
       senderId: 'user1',
@@ -94,6 +100,42 @@ const GetHistoryChatMessages = (): ChatMessage[] => {
       createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
       mine: true,
       attached: "top",
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
       status: 'seen' as MessageStatus,
       contentType: 'html'
     },
@@ -132,14 +174,12 @@ const GetHistoryChatMessages = (): ChatMessage[] => {
       attached: false,
       contentType: 'text'
     },
-    */
   ];
 };
 
 const customStyle = {
   chatContainer: {
-    background: "rgb(238 242 255)",
-    minHeight: 0,
+    backgroundColor: "rgb(238 242 255)",
   }
 };
 
@@ -147,28 +187,15 @@ export const ChatMessagePane = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessages());
 
   return (
-    <div className="flex-grow flex flex-col">
+    <div id="messagePane" className="flex-grow flex flex-col">
       <div id="chatMessageArea" className="flex-grow">
-        <MessageThread          
-          styles={customStyle}       
-          userId={'1'}
-          messages={messages}
-          onUpdateMessage={async (id, content) => {
-            const updated = messages.map((m) =>
-              m.messageId === id
-                ? { ...m, failureReason: 'Failed to edit', status: 'failed' as MessageStatus }
-                : m
-            );
-            setMessages(updated);
-            return Promise.reject('Failed to update');
-          }}
-          onCancelEditMessage={(id) => {
-            const updated = messages.map((m) =>
-              m.messageId === id ? { ...m, failureReason: undefined, status: undefined } : m
-            );
-            setMessages(updated);
-          }}
-        />
+        <FluentThemeProvider>
+          <MessageThread
+            userId={'1'}
+            messages={messages}
+            styles={customStyle}       
+          />
+        </FluentThemeProvider>
       </div>
       <div id="composeArea" className="h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
         <div className="flex-grow">
