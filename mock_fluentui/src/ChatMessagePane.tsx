@@ -156,6 +156,78 @@ const GetHistoryChatMessagesScroll = (): ChatMessage[] => {
       senderId: 'user1',
       senderDisplayName: 'Kat Larsson',
       messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
+      content: 'Another message',
+      createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
+      mine: true,
+      attached: true,
+      status: 'seen' as MessageStatus,
+      contentType: 'html'
+    },
+    {
+      messageType: 'chat',
+      senderId: 'user1',
+      senderDisplayName: 'Kat Larsson',
+      messageId: Math.random().toString(),
       content: 'bubble merged message from self',
       createdOn: new Date('2019-04-13T00:00:00.000+08:08'),
       mine: true,
@@ -197,7 +269,7 @@ export const ChatMessagePane = () => {
           />
         </FluentThemeProvider>
       </div>
-      <div id="composeArea" className="h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
+      <div id="composeArea" className="flex-none h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
         <div className="flex-grow">
           <Input className="w-full" placeholder="Type a new message" contentAfter={
             <div>
