@@ -257,6 +257,7 @@ const GetHistoryChatMessagesScroll = (): ChatMessage[] => {
 const customStyle = {
   chatContainer: {
     backgroundColor: "rgb(238 242 255)",
+    maxWidth: "none",
   }
 };
 
