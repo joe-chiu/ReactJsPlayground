@@ -1,5 +1,6 @@
 import { StrictMode, useState } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
+
 import "./styles.css";
 
 import {
@@ -41,10 +42,9 @@ const TeamsApp = () => {
   );
 };
 
-render(
+const root = createRoot(document.getElementById("root") as Element);
+root.render(
   <StrictMode>
     <TeamsApp />
   </StrictMode>
-  ,
-  document.getElementById("root")
 );

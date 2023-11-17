@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { initializeIcons, registerIcons } from '@fluentui/react';
 
 import {
   Avatar,
@@ -11,6 +12,7 @@ import {
   FluentThemeProvider,
   MessageStatus, 
   MessageThread,
+  DEFAULT_COMPONENT_ICONS,
 } from "@azure/communication-react";
 
 import {
@@ -22,6 +24,9 @@ import {
   EmojiRegular,
   EmojiFilled,
 } from "@fluentui/react-icons";
+
+initializeIcons();
+registerIcons({ icons: DEFAULT_COMPONENT_ICONS });
 
 const SendIcon = bundleIcon(SendFilled, SendRegular);
 const AddIcon = bundleIcon(AddFilled, AddRegular);
@@ -256,11 +261,17 @@ const customStyle = {
 };
 
 export const ChatMessagePane = () => {
-  const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessages());
+  const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessagesScroll());
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const containerHeight = containerRef.current?.clientHeight;
+    console.log(`Size chatMessageArea.height = ${containerHeight}px`);
+    containerRef.current?.setAttribute("style", `height: ${containerHeight}px;`);
+  });
 
   return (
     <div id="messagePane" className="flex-grow flex flex-col">
-      <div id="chatMessageArea" className="flex-grow">
+      <div id="chatMessageArea" className="flex-grow" ref={containerRef}>
         <FluentThemeProvider>
           <MessageThread
             userId={'1'}

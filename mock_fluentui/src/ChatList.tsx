@@ -31,7 +31,7 @@ export const ChatList = () => {
         <Button size="medium" className="h-8" icon={<ComposeIcon />} />
       </div>
       <div className="flex-grow">
-        <Tree defaultOpenItems={["pinned", "recent"]}>
+        <Tree aria-label="chat list" defaultOpenItems={["pinned", "recent"]}>
           <TreeItem itemType="branch" value="pinned">
             <TreeItemLayout><p className="text-sm">Pinned</p></TreeItemLayout>
             <Tree className="">
