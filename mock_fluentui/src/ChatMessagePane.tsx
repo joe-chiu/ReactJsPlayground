@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { initializeIcons, registerIcons } from '@fluentui/react';
 
 import {
@@ -33,7 +33,7 @@ export const ChatMessagePane = () => {
           <MessageThread
             userId={'1'}
             messages={messages}
-            styles={customStyle}       
+            styles={customStyle}
           />
         </FluentThemeProvider>
       </div>
