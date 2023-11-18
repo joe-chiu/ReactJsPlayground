@@ -6,7 +6,9 @@ import {
 	makeStyles,
 } from "@fluentui/react-components";
 
-interface ChatListItemProps {
+import { TeamsAvatar } from "./TeamsAvatar";
+
+export interface ChatListItemProps {
 	displayName?: string,
 	status?: PresenceBadgeStatus,
 	imageUrl?: string,
@@ -47,18 +49,18 @@ export const ChatListItem = ({
 					children:
 						<div className={`flex flex-row items-baseline ${unread && "font-bold"}`}>
 							<p className="flex-grow">{displayName}</p>
-							<p className="text-xs text-gray-500">{lastMessageTime}</p>
+							<p className="text-xs text-slate-700">{lastMessageTime}</p>
 						</div>					
 				}}
 				media={
-					<Avatar 
-						image={{ src: imageUrl }} 
-						badge={{ status: status }}
+					<TeamsAvatar 
+						imageUrl={imageUrl} 
+						status={status}
 					/>}
 				description={{
 					className: customStyle.description,
 					children:
-						<p className={`line-clamp-1 text-xs text-gray-500 ${unread && "font-bold"}`}>{lastMessagePreview}</p>
+						<p className={`line-clamp-1 text-xs text-slate-700 ${unread && "font-bold"}`}>{lastMessagePreview}</p>
 				}}
 			/>
 		</TreeItem>
