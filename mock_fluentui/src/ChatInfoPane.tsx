@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Avatar,
   AvatarGroup,
@@ -44,14 +46,22 @@ const names = [
   "Elliot Woodward",
 ];
 
-export const ChatInfoPane = () => {
+export interface ChatHeaderProps {
+  onInfoPaneClose?: () => void,
+}
+
+export const ChatInfoPane = (props: ChatHeaderProps) => {
   const { inlineItems, overflowItems } = partitionAvatarGroupItems({
     items: names,
   });
+
   return (
     <div className="w-60 flex flex-col border-l-2 border-blue-100">
       <div className="ml-auto">
-        <Button size="small" appearance="transparent" icon={<DismissIcon />} />
+        <Button 
+          size="small" appearance="transparent" icon={<DismissIcon 
+          onClick={() => props.onInfoPaneClose && props.onInfoPaneClose()}
+        />} />
       </div>
       <div className="flex flex-row items-center p-2">
         <Avatar

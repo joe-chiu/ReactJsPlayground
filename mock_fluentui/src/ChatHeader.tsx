@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Avatar,
@@ -15,20 +15,26 @@ import {
   CallFilled,
   PanelRightContractRegular,
   PanelRightContractFilled,
+  PanelRightExpandRegular,
+  PanelRightExpandFilled,
 } from "@fluentui/react-icons";
 
 const VideoIcon = bundleIcon(VideoFilled, VideoRegular);
 const CallIcon = bundleIcon(CallFilled, CallRegular);
 const PaneCloseIcon = bundleIcon(PanelRightContractFilled, PanelRightContractRegular);
+const PaneOpenIcon = bundleIcon(PanelRightExpandFilled, PanelRightExpandRegular);
 
 export interface ChatHeaderProps {
-  startWithInfoPane?: boolean,
+  showOpenIcon?: boolean,
   onTabSelect?: (tab: string) => void,
   onInfoPaneToggle?: (infoPaneShown: boolean) => void,
 }
 
-export const ChatHeader = ({startWithInfoPane = true, ...props} : ChatHeaderProps) => {
-  const [infoPaneState, setInfoPaneState] = useState(startWithInfoPane);
+export const ChatHeader = ({showOpenIcon = true, ...props} : ChatHeaderProps) => {
+  const [infoPaneState, setInfoPaneState] = useState(showOpenIcon);
+  useEffect(() => {
+    setInfoPaneState(showOpenIcon);
+  }, [showOpenIcon])
 
   return (
     <div className="h-14 flex flex-row items-center pl-4 pr-4 border-b-2 border-blue-100">
@@ -56,7 +62,7 @@ export const ChatHeader = ({startWithInfoPane = true, ...props} : ChatHeaderProp
         <Button size="medium" icon={<VideoIcon />} />
         <Button size="medium" icon={<CallIcon />} />
         <div className="w-2"></div>
-        <Button size="medium" icon={<PaneCloseIcon />} 
+        <Button size="medium" icon={infoPaneState ? <PaneCloseIcon /> : <PaneOpenIcon />} 
           onClick={(e) => { 
             setInfoPaneState(!infoPaneState);
             props.onInfoPaneToggle && props.onInfoPaneToggle(!infoPaneState);

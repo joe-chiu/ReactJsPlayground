@@ -23,6 +23,20 @@ import {
   AddFilled,
   EmojiRegular,
   EmojiFilled,
+  TextEditStyleRegular,
+  TextEditStyleFilled,
+  ImageRegular,
+  ImageFilled,
+  AttachRegular,
+  AttachFilled,
+  GifRegular,
+  GifFilled,
+  CheckboxCheckedRegular,
+  CheckboxCheckedFilled,
+  PollRegular,
+  PollFilled,
+  MoreHorizontalRegular,
+  MoreHorizontalFilled,
 } from "@fluentui/react-icons";
 
 initializeIcons();
@@ -31,6 +45,14 @@ registerIcons({ icons: DEFAULT_COMPONENT_ICONS });
 const SendIcon = bundleIcon(SendFilled, SendRegular);
 const AddIcon = bundleIcon(AddFilled, AddRegular);
 const EmojiIcon = bundleIcon(EmojiFilled, EmojiRegular);
+
+const EditStyleIcon = bundleIcon(TextEditStyleFilled, TextEditStyleRegular);
+const ImageIcon = bundleIcon(ImageFilled, ImageRegular);
+const AttachIcon = bundleIcon(AttachFilled, AttachRegular);
+const GifIcon = bundleIcon(GifFilled, GifRegular);
+const CheckboxIcon = bundleIcon(CheckboxCheckedFilled, CheckboxCheckedRegular);
+const PollIcon = bundleIcon(PollFilled, PollRegular);
+const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
 
 const GetHistoryChatMessages = (): ChatMessage[] => {
   return [
@@ -281,17 +303,29 @@ export const ChatMessagePane = () => {
           />
         </FluentThemeProvider>
       </div>
-      <div id="composeArea" className="flex-none h-16 pt-1 flex flex-row pr-4 pl-4 gap-2">
-        <div className="flex-grow">
-          <Input className="w-full" placeholder="Type a new message" contentAfter={
-            <div>
-              <Button size="small" appearance="transparent" icon={<EmojiIcon />} />
-              <Button size="small" appearance="transparent" icon={<AddIcon />} />
-            </div>
-          } />
+      <div id="composeArea" className="flex-none h-20 pt-2 flex flex-col pr-4 pl-4" >
+        <div className="flex flex-row gap-2">
+          <div className="flex-grow">
+            <Input className="w-full" placeholder="Type a new message" contentAfter={
+              <div>
+                <Button size="small" appearance="transparent" icon={<EmojiIcon />} />
+                <Button size="small" appearance="transparent" icon={<AddIcon />} />
+              </div>
+            } />
+          </div>
+          <div className="">
+            <Button icon={<SendIcon />} />
+          </div>
         </div>
-        <div className="">
-          <Button icon={<SendIcon />} />
+        <div className="flex flex-row">
+          <Button appearance="transparent" icon={<EditStyleIcon />} />
+          <Button appearance="transparent" icon={<ImageIcon />} />
+          <Button appearance="transparent" icon={<AttachIcon />} />
+          <Button appearance="transparent" icon={<EmojiIcon />} />
+          <Button appearance="transparent" icon={<GifIcon />} />
+          <Button appearance="transparent" icon={<CheckboxIcon />} />
+          <Button appearance="transparent" icon={<PollIcon />} />
+          <Button appearance="transparent" icon={<MoreIcon />} />
         </div>
       </div>
     </div>

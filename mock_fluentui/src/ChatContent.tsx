@@ -17,15 +17,15 @@ export const ChatContent = () => {
   return (
     <div className="flex-grow flex flex-col h-full bg-indigo-50 shadow-lg">
       <ChatHeader 
-        startWithInfoPane={true}
+        showOpenIcon={showInfoPane}
         onTabSelect={(tab) => setChatTab(tab)}
-        onInfoPaneToggle={(infoPaneState) => setShowInfoPane(infoPaneState)} />
+        onInfoPaneToggle={(newInfoPaneState) => setShowInfoPane(newInfoPaneState)} />
       <div className="flex-grow flex flex-row">
         { chatTab === ChatTab[ChatTab.Chat] && 
           <ChatMessagePane />
         }
         { chatTab === ChatTab[ChatTab.Chat] && showInfoPane &&          
-          <ChatInfoPane />
+          <ChatInfoPane onInfoPaneClose={() => setShowInfoPane(false)} />
         }
         { chatTab === ChatTab[ChatTab.Files] &&
           <ChatFiles />
