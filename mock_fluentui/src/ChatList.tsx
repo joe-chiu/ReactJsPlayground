@@ -36,8 +36,8 @@ export const ChatList = () => {
             <TreeItemLayout><p className="text-sm">Pinned</p></TreeItemLayout>
             <Tree className="">
               <ChatListItem unread />
-              <ChatListItem />
-              <ChatListItem />
+              <ChatListItem group="pinned" />
+              <ChatListItem group="pinned" />
             </Tree>
           </TreeItem>
           <TreeItem itemType="branch" value="recent">
