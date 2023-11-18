@@ -23,18 +23,12 @@ const customStyle = {
 };
 
 export const ChatMessagePane = () => {
-  const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessages());
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const containerHeight = containerRef.current?.clientHeight;
-    console.log(`Size chatMessageArea.height = ${containerHeight}px`);
-    containerRef.current?.setAttribute("style", `height: ${containerHeight}px;`);
-  });
+  const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessagesScroll());
 
   return (
     <div id="messagePane" className="flex-grow flex flex-col">
-      <div id="chatMessageArea" className="flex-grow" ref={containerRef}>
+      { /* the h-52 somehow works like min-height and is crucial to make the layout work */ }
+      <div id="chatMessageArea" className="flex-grow h-52">
         <FluentThemeProvider>
           <MessageThread
             userId={'1'}
