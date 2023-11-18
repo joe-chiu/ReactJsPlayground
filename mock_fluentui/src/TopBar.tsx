@@ -36,8 +36,6 @@ export const TopBar = () => {
 
   return (
     <div className="h-10 flex flex-row items-center bg-blue-200 border-b-2 border-indigo-200" >
-      <div className="">
-      </div>
       <div className="flex flex-row w-52 justify-start"></div>
       <div className="flex-grow flex place-content-center">
         <Button appearance="transparent" icon={<LeftArrowIcon />} />
