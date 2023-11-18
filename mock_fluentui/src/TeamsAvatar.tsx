@@ -6,6 +6,7 @@ import {
   PopoverTrigger,
   Button,
   Divider,
+  Link,
 } from "@fluentui/react-components";
 
 import {
@@ -16,6 +17,8 @@ import {
   VideoFilled,
   CallRegular,
   CallFilled,
+  MailRegular,
+  MailFilled,
   MoreHorizontalFilled,
   MoreHorizontalRegular,
 } from "@fluentui/react-icons";
@@ -24,7 +27,7 @@ const ChatIcon = bundleIcon(ChatFilled, ChatRegular);
 const VideoIcon = bundleIcon(VideoFilled, VideoRegular);
 const CallIcon = bundleIcon(CallFilled, CallRegular);
 const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
-
+const MailIcon = bundleIcon(MailFilled, MailRegular);
 
 export interface TeamsAvatarProps {
 	displayName?: string,
@@ -47,7 +50,7 @@ export const TeamsAvatar = ({
         />
       </PopoverTrigger>
       <PopoverSurface>
-        <div className="w-60 h-72 flex flex-col p-2">
+        <div className="w-50 h-60 flex flex-col">
           <div className="flex flex-row">
             <Avatar 
               size={72}
@@ -55,7 +58,7 @@ export const TeamsAvatar = ({
               image={{ src: imageUrl }} 
               badge={{ status: status }}
             />
-            <div className="flex flex-col pl-4 justify-center">
+            <div className="flex flex-col pl-2 justify-center">
               <div className="font-bold">{displayName}</div>
               <div className="text-slate-700">{status}</div>
             </div>
@@ -71,7 +74,7 @@ export const TeamsAvatar = ({
           </div>
           <div className="flex-grow">
             <div className="font-bold">Contacts</div>
-            <div>Paragraph of contact data</div>
+            <MailIcon fontSize={20} className="mr-2" /><Link>somewhere@gmail.com</Link>
           </div>
         </div>
       </PopoverSurface>
