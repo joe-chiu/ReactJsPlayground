@@ -28,7 +28,7 @@ const TeamsApp = () => {
     <FluentProvider theme={webLightTheme}>
       <div className="flex flex-col w-full h-full bg-red-300">
         <TopBar />
-        <div className="flex flex-row min-h-0">
+        <div className="flex-grow flex flex-row min-h-0">
           <LeftNav onAppSelect={(app) => setActiveApp(app)} />
           { activeApp === TeamsTab[TeamsTab.Chat] &&
             <ChatList />

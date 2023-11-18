@@ -15,7 +15,7 @@ export const ChatContent = () => {
   const [showInfoPane, setShowInfoPane] = useState(true);
   
   return (
-    <div className="flex-grow flex flex-col h-full bg-indigo-50 shadow-lg">
+    <div className="flex-grow flex flex-col bg-indigo-50 shadow-lg">
       <ChatHeader 
         showOpenIcon={showInfoPane}
         onTabSelect={(tab) => setChatTab(tab)}
