@@ -2,12 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { initializeIcons, registerIcons } from '@fluentui/react';
 
 import {
-  Avatar,
-  Button,
-  Input,
-} from "@fluentui/react-components";
-
-import {
   ChatMessage,
   FluentThemeProvider,
   MessageStatus, 
@@ -15,44 +9,10 @@ import {
   DEFAULT_COMPONENT_ICONS,
 } from "@azure/communication-react";
 
-import {
-  bundleIcon,
-  SendRegular,
-  SendFilled,
-  AddRegular,
-  AddFilled,
-  EmojiRegular,
-  EmojiFilled,
-  TextEditStyleRegular,
-  TextEditStyleFilled,
-  ImageRegular,
-  ImageFilled,
-  AttachRegular,
-  AttachFilled,
-  GifRegular,
-  GifFilled,
-  CheckboxCheckedRegular,
-  CheckboxCheckedFilled,
-  PollRegular,
-  PollFilled,
-  MoreHorizontalRegular,
-  MoreHorizontalFilled,
-} from "@fluentui/react-icons";
+import { Compose } from "./Compose";
 
 initializeIcons();
 registerIcons({ icons: DEFAULT_COMPONENT_ICONS });
-
-const SendIcon = bundleIcon(SendFilled, SendRegular);
-const AddIcon = bundleIcon(AddFilled, AddRegular);
-const EmojiIcon = bundleIcon(EmojiFilled, EmojiRegular);
-
-const EditStyleIcon = bundleIcon(TextEditStyleFilled, TextEditStyleRegular);
-const ImageIcon = bundleIcon(ImageFilled, ImageRegular);
-const AttachIcon = bundleIcon(AttachFilled, AttachRegular);
-const GifIcon = bundleIcon(GifFilled, GifRegular);
-const CheckboxIcon = bundleIcon(CheckboxCheckedFilled, CheckboxCheckedRegular);
-const PollIcon = bundleIcon(PollFilled, PollRegular);
-const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
 
 const GetHistoryChatMessages = (): ChatMessage[] => {
   return [
@@ -286,6 +246,7 @@ const customStyle = {
 export const ChatMessagePane = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessagesScroll());
   const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const containerHeight = containerRef.current?.clientHeight;
     console.log(`Size chatMessageArea.height = ${containerHeight}px`);
@@ -303,31 +264,7 @@ export const ChatMessagePane = () => {
           />
         </FluentThemeProvider>
       </div>
-      <div id="composeArea" className="flex-none h-20 pt-2 flex flex-col pr-4 pl-4" >
-        <div className="flex flex-row gap-2">
-          <div className="flex-grow">
-            <Input className="w-full" placeholder="Type a new message" contentAfter={
-              <div>
-                <Button size="small" appearance="transparent" icon={<EmojiIcon />} />
-                <Button size="small" appearance="transparent" icon={<AddIcon />} />
-              </div>
-            } />
-          </div>
-          <div className="">
-            <Button icon={<SendIcon />} />
-          </div>
-        </div>
-        <div className="flex flex-row">
-          <Button appearance="transparent" icon={<EditStyleIcon />} />
-          <Button appearance="transparent" icon={<ImageIcon />} />
-          <Button appearance="transparent" icon={<AttachIcon />} />
-          <Button appearance="transparent" icon={<EmojiIcon />} />
-          <Button appearance="transparent" icon={<GifIcon />} />
-          <Button appearance="transparent" icon={<CheckboxIcon />} />
-          <Button appearance="transparent" icon={<PollIcon />} />
-          <Button appearance="transparent" icon={<MoreIcon />} />
-        </div>
-      </div>
+      <Compose />
     </div>
   );
 };

@@ -14,5 +14,5 @@
  https://chrisbateman.github.io/webpack-visualizer/
 
  # Todo
- rich/simple compose, reaction, chat list menu, settings, channel view
- activity view, calendar (data grid)
+reaction, chat list menu
+settings, channel tab, activity tab, calendar tab (data grid), files tab
