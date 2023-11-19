@@ -13,6 +13,7 @@ import { TopBar } from "./TopBar";
 import { ChatList } from "./ChatList";
 import { ChatContent } from "./ChatContent";
 import { CalendarTab } from "./CalendarTab";
+import { FilesTab } from "./FilesTab";
 
 enum TeamsTab {
   Activity,
@@ -39,6 +40,9 @@ const TeamsApp = () => {
           }
           { activeApp === TeamsTab[TeamsTab.Calendar] &&
             <CalendarTab />
+          }
+          { activeApp === TeamsTab[TeamsTab.Files] &&
+            <FilesTab />
           }
         </div>
       </div>
