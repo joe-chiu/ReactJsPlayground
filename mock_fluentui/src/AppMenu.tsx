@@ -39,7 +39,7 @@ const AboutSubMenu = () => {
   );
 };
  
-export const TeamsMenu = () => {
+export const AppMenu = () => {
   return (
     <Menu positioning={"below"}>
       <MenuTrigger disableButtonEnhancement>

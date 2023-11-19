@@ -38,7 +38,7 @@ export interface TeamsLeftNavProps {
 export const LeftNav = (props: TeamsLeftNavProps) => {
   return (
     <div className="flex flex-col w-16 bg-blue-200">
-      <div className="flex-grow flex flex-col">
+      <div className="grow flex flex-col">
         <div className="">
           <TabList vertical size="medium" defaultSelectedValue="Chat" 
             onTabSelect={(e, data) => props.onAppSelect && props.onAppSelect(data.value as string)}>

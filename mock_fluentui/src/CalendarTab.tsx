@@ -30,6 +30,8 @@ export const CalendarTab = () => {
   const amHours = [7, 8, 9, 10, 11];
   const pmHours = [12, 1, 2, 3, 4, 5, 6];
   const days = ["Monday", "Tuesday", "Wdnesday", "Thursday", "Friday"];
+  const firstDayOfWeek = 13;
+  const monthYear = "November 2023";
 
   return (
     <div className="flex flex-col w-full h-full bg-indigo-50">
@@ -55,7 +57,7 @@ export const CalendarTab = () => {
               <PopoverTrigger disableButtonEnhancement>
                 <Button appearance="transparent"
                   icon={<ChevronDownRegular />} iconPosition={"after"}>
-                  <span className="font-bold">November 2023</span>
+                  <span className="font-bold">{monthYear}</span>
                 </Button>
               </PopoverTrigger>
 
@@ -101,26 +103,12 @@ export const CalendarTab = () => {
       <div style={{scrollbarGutter: "stable", overflow: "hidden"}} 
         className="flex-none flex flex-row border-b border-slate-400">
         <div className="flex-none w-12 h-16"></div>
+        { days.map((day, i) => (
         <div className="flex-1 border-l border-slate-400">
-          <div className="text-2xl mx-2 mt-1 text-slate-600">13</div>
-          <div className="mx-2 text-small text-slate-600">Monday</div>
+          <div className="text-2xl mx-2 mt-1 text-slate-600">{firstDayOfWeek + i}</div>
+          <div className="mx-2 text-small text-slate-600">{day}</div>
         </div>
-        <div className="flex-1 border-l border-slate-400">
-        <div className="text-2xl mx-2 mt-1 text-slate-600">14</div>
-          <div className="mx-2 text-small text-slate-600">Tuesday</div>
-        </div>
-        <div className="flex-1 border-l border-slate-400">
-        <div className="text-2xl mx-2 mt-1 text-slate-600">15</div>
-          <div className="mx-2 text-small text-slate-600">Wednesday</div>
-        </div>
-        <div className="flex-1 border-l border-slate-400">
-        <div className="text-2xl mx-2 mt-1 text-slate-600">16</div>
-          <div className="mx-2 text-small text-slate-600">Thursday</div>
-        </div>
-        <div className="flex-1 border-l border-r-0 border-slate-400">
-        <div className="text-2xl mx-2 mt-1 text-slate-600">17</div>
-          <div className="mx-2 text-small text-slate-600">Friday</div>
-        </div>
+        ))}
       </div>
       <div className="grow flex flex-col overflow-y-auto">
         {amHours.map(hour => (

@@ -161,7 +161,6 @@ const columns: TableColumnDefinition<Item>[] = [
   }),
 ];
 
-
 export const FilesTab = () => {
   return (
     <div id="filesTab" className="grow flex flex-row bg-indigo-50">

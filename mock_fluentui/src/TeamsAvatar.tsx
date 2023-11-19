@@ -72,7 +72,7 @@ export const TeamsAvatar = ({
           <div className="h-5 pt-2 pb-2">
             <Divider />
           </div>
-          <div className="flex-grow">
+          <div className="grow">
             <div className="font-bold">Contacts</div>
             <MailIcon fontSize={20} className="mr-2" /><Link>somewhere@gmail.com</Link>
           </div>

@@ -88,7 +88,7 @@ export const ChatInfoPane = (props: ChatHeaderProps) => {
           )}
         </AvatarGroup>
       </div>
-      <div className="flex-grow flex flex-col items-start">
+      <div className="grow flex flex-col items-start">
         <p className="font-bold p-2">Options</p>
         <Button size="small" appearance="transparent" icon={<AlertIcon />}>Mute</Button>
         <Button size="small" appearance="transparent" icon={<LinkIcon />}>Copy link to chat</Button>

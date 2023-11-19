@@ -51,7 +51,7 @@ export const Compose = () => {
   return (
     <div id="composeArea" className={`flex-none ${showRichCompose ? "h-40" : "h-20" } pt-2 pb-2 flex flex-col pr-4 pl-4 justify-end`} >
       <div className="flex flex-row gap-2">
-        <div className="flex-grow">
+        <div className="grow">
           {!showRichCompose &&
           <Input className="w-full" placeholder="Type a new message" contentAfter={
             <div>

@@ -47,7 +47,7 @@ export const ChatHeader = ({showOpenIcon = true, ...props} : ChatHeaderProps) =>
         />
       </div>
       <div className="w-auto pl-2 pr-2 text-md font-bold">Weekend escape</div>
-      <div className="flex-grow">
+      <div className="grow">
         <TabList defaultSelectedValue="Chat" 
           onTabSelect={(e, data) => props.onTabSelect && props.onTabSelect(data.value as string)} >
           <Tab value="Chat">

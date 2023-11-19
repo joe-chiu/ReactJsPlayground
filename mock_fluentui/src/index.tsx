@@ -11,7 +11,7 @@ import {
 import { LeftNav } from "./LeftNav";
 import { TopBar } from "./TopBar";
 import { ChatList } from "./ChatList";
-import { ChatContent } from "./ChatContent";
+import { ChatTab } from "./ChatTab";
 import { CalendarTab } from "./CalendarTab";
 import { FilesTab } from "./FilesTab";
 
@@ -30,13 +30,13 @@ const TeamsApp = () => {
     <FluentProvider theme={webLightTheme}>
       <div className="flex flex-col w-full h-full bg-red-300">
         <TopBar />
-        <div className="flex-grow flex flex-row min-h-0">
+        <div className="grow flex flex-row min-h-0">
           <LeftNav onAppSelect={(app) => setActiveApp(app)} />
           { activeApp === TeamsTab[TeamsTab.Chat] &&
             <ChatList />
           }
           { activeApp === TeamsTab[TeamsTab.Chat] &&
-            <ChatContent />
+            <ChatTab />
           }
           { activeApp === TeamsTab[TeamsTab.Calendar] &&
             <CalendarTab />

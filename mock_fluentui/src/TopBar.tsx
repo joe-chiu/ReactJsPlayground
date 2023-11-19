@@ -22,7 +22,7 @@ import {
 } from "@fluentui/react-icons";
 
 import { UserMenu } from "./UserMenu";
-import { TeamsMenu } from "./TeamsMenu";
+import { AppMenu } from "./AppMenu";
 
 const SearchIcon = bundleIcon(SearchFilled, SearchRegular);
 const LeftArrowIcon = bundleIcon(ChevronLeftFilled, ChevronLeftRegular);
@@ -37,7 +37,7 @@ export const TopBar = () => {
   return (
     <div className="h-10 flex flex-row items-center bg-blue-200 border-b-2 border-indigo-200" >
       <div className="flex flex-row w-52 justify-start"></div>
-      <div className="flex-grow flex place-content-center">
+      <div className="grow flex place-content-center">
         <Button appearance="transparent" icon={<LeftArrowIcon />} />
         <Button appearance="transparent" icon={<RightArrowIcon />} />
         <Input className="w-2/5" size="medium" placeholder={searchPlaceholderText} contentBefore={<SearchIcon />}
@@ -45,7 +45,7 @@ export const TopBar = () => {
               onBlur={() => setSearchPlaceholderText("Search")} />
       </div>
       <div className="flex flex-row w-52 justify-end">
-        <TeamsMenu />
+        <AppMenu />
         <UserMenu />
         <Button appearance="transparent" icon={<MinimizeIcon />} />
         <Button appearance="transparent" icon={<MaximizeIcon />} />

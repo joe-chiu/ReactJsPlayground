@@ -47,7 +47,7 @@ export const UserMenu = () => {
                   src: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
                 }} 
               />
-              <div className="flex-grow flex flex-col pl-2">
+              <div className="grow flex flex-col pl-2">
                 <div className="text-xs font-bold">Taylor Swift</div>
                 <div className="text-2xs text-slate-500">taylor@gmail.com</div>
                 <div className="flex flex-row">

@@ -26,9 +26,9 @@ export const ChatMessagePane = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessagesScroll());
 
   return (
-    <div id="messagePane" className="flex-grow flex flex-col">
+    <div id="messagePane" className="grow flex flex-col">
       { /* the h-52 somehow works like min-height and is crucial to make the layout work */ }
-      <div id="chatMessageArea" className="flex-grow h-52">
+      <div id="chatMessageArea" className="grow h-52">
         <FluentThemeProvider>
           <MessageThread
             userId={'1'}

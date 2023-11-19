@@ -75,7 +75,7 @@ export const ChatListItem = ({
           className: customStyle.main,
           children:
             <div className={`flex flex-row items-baseline ${unread && "font-bold"}`}>
-              <p className="flex-grow">{displayName}</p>
+              <p className="grow">{displayName}</p>
               {!hover &&
               <p className="text-xs text-slate-700">{lastMessageTime}</p>
               }
