@@ -15,4 +15,4 @@
 
  # Todo
 reaction
-settings, channel tab, activity tab, calendar tab (data grid), files tab
+settings, channel tab, activity tab, files tab

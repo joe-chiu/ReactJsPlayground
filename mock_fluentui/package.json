@@ -10,12 +10,13 @@
   "author": "",
   "keywords": [],
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@azure/communication-react": "^1.10.0",
     "@fluentui-contrib/react-chat": "^0.1.7",
     "@fluentui/react-components": "^9.39.0",
-    "@fluentui/react-icons": "^2.0.222"
+    "@fluentui/react-icons": "^2.0.222",
+    "@fluentui/react-calendar-compat": "^0.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
