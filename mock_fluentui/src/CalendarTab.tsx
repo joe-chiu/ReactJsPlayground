@@ -33,7 +33,7 @@ export const CalendarTab = () => {
 
   return (
     <div className="flex flex-col w-full h-full bg-indigo-50">
-      <div className="h-40 flex flex-col border-b border-slate-400">
+      <div className="flex-none h-28 flex flex-col border-b border-slate-400">
         <div className="flex flex-row items-center">
           <div className="bg-blue-200 p-1 m-4 h-8 w-8 rounded-md">
             <CalendarFilled color="white" fontSize={24} />
@@ -46,7 +46,7 @@ export const CalendarTab = () => {
           <div className="mr-2"><Button appearance="secondary" icon={<NumberSymbolRegular />}>Join with an ID</Button></div>
           <div className="mr-8"><Button appearance="primary" icon={<AddRegular />}>New meeting</Button></div>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row mt-3 items-center">
           <div className="mx-4"><Button icon={<CalendarTodayRegular />} appearance="transparent">Today</Button></div>
           <div><Button icon={<ChevronLeftRegular />} appearance="transparent" /></div>
           <div><Button icon={<ChevronRightRegular />} appearance="transparent" /></div>
@@ -98,33 +98,34 @@ export const CalendarTab = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row border-b border-slate-400 pr-[15.33px]">
+      <div style={{scrollbarGutter: "stable", overflow: "hidden"}} 
+        className="flex-none flex flex-row border-b border-slate-400">
         <div className="flex-none w-12 h-16"></div>
-        <div className="flex-1 border-l border-slate-600">
+        <div className="flex-1 border-l border-slate-400">
           <div className="text-2xl mx-2 mt-1 text-slate-600">13</div>
-          <div className="mx-2 text-slate-400">Monday</div>
+          <div className="mx-2 text-small text-slate-600">Monday</div>
         </div>
-        <div className="flex-1 border-l border-slate-600">
+        <div className="flex-1 border-l border-slate-400">
         <div className="text-2xl mx-2 mt-1 text-slate-600">14</div>
-          <div className="mx-2 text-slate-400">Tuesday</div>
+          <div className="mx-2 text-small text-slate-600">Tuesday</div>
         </div>
-        <div className="flex-1 border-l border-slate-600">
+        <div className="flex-1 border-l border-slate-400">
         <div className="text-2xl mx-2 mt-1 text-slate-600">15</div>
-          <div className="mx-2 text-slate-400">Wednesday</div>
+          <div className="mx-2 text-small text-slate-600">Wednesday</div>
         </div>
-        <div className="flex-1 border-l border-slate-600">
+        <div className="flex-1 border-l border-slate-400">
         <div className="text-2xl mx-2 mt-1 text-slate-600">16</div>
-          <div className="mx-2 text-slate-400">Thursday</div>
+          <div className="mx-2 text-small text-slate-600">Thursday</div>
         </div>
-        <div className="flex-1 border-l border-r-0 border-slate-600">
+        <div className="flex-1 border-l border-r-0 border-slate-400">
         <div className="text-2xl mx-2 mt-1 text-slate-600">17</div>
-          <div className="mx-2 text-slate-400">Friday</div>
+          <div className="mx-2 text-small text-slate-600">Friday</div>
         </div>
       </div>
       <div className="grow flex flex-col overflow-y-auto">
         {amHours.map(hour => (
         <div key={hour + "AR"} className="flex flex-row">
-          <div key={hour + "A"} className="w-12 h-20 text-sm text-center text-slate-500">{hour} AM</div>
+          <div key={hour + "A"} className="w-12 h-20 text-xs text-center text-slate-500">{hour} AM</div>
           {days.map(day => (
           <div key={hour + "A" + day} className="grow border-l border-b border-slate-400"></div>
           ))}
@@ -132,7 +133,7 @@ export const CalendarTab = () => {
         ))}
         {pmHours.map(hour => (
         <div key={hour + "PR"} className="flex flex-row">
-          <div key={hour + "P"} className="w-12 h-20 text-sm text-center text-slate-500">{hour} PM</div>
+          <div key={hour + "P"} className="w-12 h-20 text-xs text-center text-slate-500">{hour} PM</div>
           {days.map(day => (
           <div key={hour + "A" + day} className="grow border-l border-b border-slate-400"></div>
           ))}
