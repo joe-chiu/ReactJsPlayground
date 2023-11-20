@@ -19,15 +19,29 @@ import {
   MoreHorizontalRegular,
   MoreHorizontalFilled,
   GlassesOffRegular,
+  GlassesOffFilled,
   PinOffRegular,
+  PinOffFilled,
   PinRegular,
+  PinFilled,
   AlertOffRegular,
+  AlertOffFilled,
   EyeOffRegular,
+  EyeOffFilled,
   ProhibitedRegular,
+  ProhibitedFilled,
   DeleteRegular,
+  DeleteFilled,
 } from "@fluentui/react-icons";
 
 const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
+const GlassesOffIcon = bundleIcon(GlassesOffFilled, GlassesOffRegular);
+const PinOffIcon = bundleIcon(PinOffFilled, PinOffRegular);
+const PinIcon = bundleIcon(PinFilled, PinRegular);
+const AlertOffIcon = bundleIcon(AlertOffFilled, AlertOffRegular);
+const EyeOffIcon = bundleIcon(EyeOffFilled, EyeOffRegular);
+const ProhibitedIcon = bundleIcon(ProhibitedFilled, ProhibitedRegular);
+const DeleteIcon = bundleIcon(DeleteFilled, DeleteRegular);
 
 import { TeamsAvatar } from "./TeamsAvatar";
 
@@ -53,6 +67,35 @@ const useCustomStyles = makeStyles({
     paddingBottom: "2px",
   }
 });
+
+const ChatListPopoverMenu = ({group = "recent"}) => {
+  return (
+    <Menu positioning={"below-end"}>
+      <MenuTrigger disableButtonEnhancement>
+      <Button
+      aria-label="More options"
+      appearance="subtle"
+      icon={<MoreIcon />}
+      />
+      </MenuTrigger>
+      <MenuPopover>
+      <MenuList>
+        <MenuItem icon={<GlassesOffIcon />}>Mark as read</MenuItem>
+        <MenuItem icon={group === "pinned" ? <PinOffIcon /> : <PinIcon />}>
+        {group === "pinned" ? "Unpin" : "Pin"}
+        </MenuItem>
+        <MenuItem icon={<AlertOffIcon />}>Mute</MenuItem>
+        {group === "recent" &&
+        <MenuItem icon={<EyeOffIcon />}>Hide</MenuItem>
+        }
+        <MenuItem icon={<ProhibitedIcon />}>Block</MenuItem>
+        <MenuDivider />
+        <MenuItem icon={<DeleteIcon />}>Delete chat</MenuItem>
+      </MenuList>
+      </MenuPopover>
+    </Menu>  
+  );
+};
 
 export const ChatListItem = ({
   displayName = "Katri Athokas",
@@ -92,30 +135,7 @@ export const ChatListItem = ({
             <p className={`line-clamp-1 text-xs text-slate-700 ${unread && "font-bold"}`}>{lastMessagePreview}</p>
         }}
         actions={
-          <Menu positioning={"below-end"}>
-            <MenuTrigger disableButtonEnhancement>
-            <Button
-            aria-label="More options"
-            appearance="subtle"
-            icon={<MoreIcon />}
-            />
-            </MenuTrigger>
-            <MenuPopover>
-            <MenuList>
-              <MenuItem icon={<GlassesOffRegular />}>Mark as read</MenuItem>
-              <MenuItem icon={group === "pinned" ? <PinOffRegular /> : <PinRegular />}>
-              {group === "pinned" ? "Unpin" : "Pin"}
-              </MenuItem>
-              <MenuItem icon={<AlertOffRegular />}>Mute</MenuItem>
-              {group === "recent" &&
-              <MenuItem icon={<EyeOffRegular />}>Hide</MenuItem>
-              }
-              <MenuItem icon={<ProhibitedRegular />}>Block</MenuItem>
-              <MenuDivider />
-              <MenuItem icon={<DeleteRegular />}>Delete chat</MenuItem>
-            </MenuList>
-            </MenuPopover>
-          </Menu>  
+          <ChatListPopoverMenu group={group} />
         }
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

@@ -11,7 +11,7 @@ enum TeamPaneTab {
 
 export const TeamsPane = () => {
   const [currentTab, setCurrentTab] = useState(TeamPaneTab[TeamPaneTab.Posts]);
-  const [showInfoPane, setShowInfoPane] = useState(true);
+  const [showInfoPane, setShowInfoPane] = useState(false);
   
   return (
     <div className="grow flex flex-col bg-indigo-50 shadow-lg">

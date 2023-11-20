@@ -1,5 +1,11 @@
 import {
   Button,
+  Menu,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  MenuPopover,
+  MenuTrigger,
   Tree, 
   TreeItem, 
   TreeItemLayout,
@@ -14,11 +20,28 @@ import {
   AddFilled,
   FilterRegular,
   FilterFilled,
+  PinOffRegular,
+  PinRegular,
+  AlertRegular,
+  AlertFilled,
+  SettingsRegular,
+  SettingsFilled,
+  MailRegular,
+  MailFilled,
+  LinkRegular,
+  LinkFilled,
+  ConnectorRegular,
+  ConnectorFilled
 } from "@fluentui/react-icons";
 
 const AddIcon = bundleIcon(AddFilled, AddRegular);
 const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
 const FilterIcon = bundleIcon(FilterFilled, FilterRegular);
+const AlertIcon = bundleIcon(AlertFilled, AlertRegular);
+const SettingsIcon = bundleIcon(SettingsFilled, SettingsRegular);
+const MailIcon = bundleIcon(MailFilled, MailRegular);
+const LinkIcon = bundleIcon(LinkFilled, LinkRegular);
+const ConnectorIcon = bundleIcon(ConnectorFilled, ConnectorRegular);
 
 const usePinndcItemStyles = makeStyles({
   root: {
@@ -44,15 +67,71 @@ const useChannelItemStyles = makeStyles({
   },
 });
 
-const TeamListItem = () => {
+const PinnedChannelTreeItem = (
+  {teamName = "Team name", channelName = "Channel name"}
+) => {
+  const pinnedItemStyle = usePinndcItemStyles();
   return (
-    <div></div>
+    <div>
+      <TreeItem itemType="leaf">
+        <TreeItemLayout 
+          className={pinnedItemStyle.root}
+          actions={ <TeamListPopoverMenu group="pinned" /> }
+        >
+          <div className="flex flex-row items-center">
+            <div className="flex-none w-8 h-8 mx-2 my-1 rounded-md bg-green-800"></div>
+            <div className="flex-grow flex flex-col">
+              <div>{channelName}</div>
+              <div className="text-sm text-slate-600">{teamName}</div>
+            </div>
+          </div>
+        </TreeItemLayout>
+      </TreeItem>
+    </div>
   );
 }
 
+const ChannelTreeItem = () => {
+  return (
+    <div></div>
+  );
+};
+
+const TeamTreeItem = () => {
+  return (
+    <div></div>
+  );
+};
+
+const TeamListPopoverMenu = ({group = "pinned"}) => {
+  return (
+    <Menu positioning={"below-end"}>
+      <MenuTrigger disableButtonEnhancement>
+      <Button
+      aria-label="More options"
+      appearance="subtle"
+      icon={<MoreIcon />}
+      />
+      </MenuTrigger>
+      <MenuPopover>
+      <MenuList>
+        <MenuItem icon={<AlertIcon />}>Channel notifications</MenuItem>
+        <MenuItem icon={group === "pinned" ? <PinOffRegular /> : <PinRegular />}>
+          {group === "pinned" ? "Unpin" : "Pin"}
+        </MenuItem>
+        <MenuDivider />
+        <MenuItem icon={<SettingsIcon />}>Manage channel</MenuItem>
+        <MenuItem icon={<MailIcon />}>Get email address</MenuItem>
+        <MenuItem icon={<LinkIcon />}>Get link to channel</MenuItem>
+        <MenuItem icon={<ConnectorIcon />}>Connectors</MenuItem>
+      </MenuList>
+      </MenuPopover>
+    </Menu>  
+  );
+};
+
 export const TeamsList = () => {
 
-  const pinnedItemStyle = usePinndcItemStyles();
   const teamItemStyle = useTeamItemStyles();
   const channelItemStype = useChannelItemStyles();
 
@@ -69,17 +148,9 @@ export const TeamsList = () => {
           <TreeItem itemType="branch" value="pinned">
             <TreeItemLayout><p className="text-sm">Pinned</p></TreeItemLayout>
             <Tree>
-              <TreeItem itemType="leaf">
-                <TreeItemLayout className={pinnedItemStyle.root}>
-                  <div className="flex flex-row items-center">
-                    <div className="flex-none w-8 h-8 mx-2 my-1 rounded-md bg-green-800"></div>
-                    <div className="flex-grow flex flex-col">
-                      <div>Channel name</div>
-                      <div className="text-sm text-slate-600">Team name</div>
-                    </div>
-                  </div>
-                </TreeItemLayout>
-              </TreeItem>
+              <PinnedChannelTreeItem />
+              <PinnedChannelTreeItem />
+              <PinnedChannelTreeItem />
             </Tree>
           </TreeItem>
           <TreeItem itemType="branch" value="teams">

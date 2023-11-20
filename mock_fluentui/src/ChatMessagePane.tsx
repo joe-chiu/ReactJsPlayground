@@ -14,7 +14,6 @@ import { GetHistoryChatMessages, GetHistoryChatMessagesScroll } from "./data";
 initializeIcons();
 registerIcons({ icons: DEFAULT_COMPONENT_ICONS });
 
-
 const customStyle = {
   chatContainer: {
     backgroundColor: "rgb(238 242 255)",

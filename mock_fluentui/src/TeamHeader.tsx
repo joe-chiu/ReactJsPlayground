@@ -63,7 +63,7 @@ const SplitVideoCallButton = () => {
   ); 
 };
 
-export const TeamHeader = ({showOpenIcon = true, ...props} : TeamHeaderProps) => {
+export const TeamHeader = ({showOpenIcon = false, ...props} : TeamHeaderProps) => {
   const [infoPaneState, setInfoPaneState] = useState(showOpenIcon);
   useEffect(() => {
     setInfoPaneState(showOpenIcon);
@@ -72,18 +72,17 @@ export const TeamHeader = ({showOpenIcon = true, ...props} : TeamHeaderProps) =>
   return (
     <div className="h-14 flex flex-row items-center pl-4 pr-4 border-b-2 border-blue-100">
       <div className="">
-        <Avatar
-          name="Katri Athokas"
-          image={{
-            src: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
-          }}
-        />
+      <div className="flex flex-row items-center">
+        <div className="flex-none w-8 h-8 mx-2 my-1 rounded-md bg-green-800"></div>
+          <div className="flex-grow flex flex-col">
+            <div className="text-md font-bold">General</div>
+          </div>
+        </div>
       </div>
-      <div className="w-auto pl-2 pr-2 text-md font-bold">Weekend escape</div>
       <div>
-        <TabList defaultSelectedValue="Chat" 
+        <TabList defaultSelectedValue="posts" 
           onTabSelect={(e, data) => props.onTabSelect && props.onTabSelect(data.value as string)} >
-          <Tab value="Chat">
+          <Tab value="Posts">
             <p className="">Posts</p>
           </Tab>
           <Tab value="Files">
