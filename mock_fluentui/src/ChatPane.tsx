@@ -10,24 +10,25 @@ enum ChatPaneTab {
   Files
 }
 
-export const ChatTab = () => {
-  const [chatTab, setChatTab] = useState(ChatPaneTab[ChatPaneTab.Chat]);
+export const ChatPane = () => {
+  const [currentTab, setCurrentTab] = useState(ChatPaneTab[ChatPaneTab.Chat]);
   const [showInfoPane, setShowInfoPane] = useState(true);
   
   return (
     <div className="grow flex flex-col bg-indigo-50 shadow-lg">
       <ChatHeader 
         showOpenIcon={showInfoPane}
-        onTabSelect={(tab) => setChatTab(tab)}
-        onInfoPaneToggle={(newInfoPaneState) => setShowInfoPane(newInfoPaneState)} />
+        onTabSelect={(tab) => setCurrentTab(tab)}
+        onInfoPaneToggle={(newInfoPaneState) => setShowInfoPane(newInfoPaneState)} 
+      />
       <div className="grow flex flex-row">
-        { chatTab === ChatPaneTab[ChatPaneTab.Chat] && 
+        { currentTab === ChatPaneTab[ChatPaneTab.Chat] && 
           <ChatMessagePane />
         }
-        { chatTab === ChatPaneTab[ChatPaneTab.Chat] && showInfoPane &&          
+        { currentTab === ChatPaneTab[ChatPaneTab.Chat] && showInfoPane &&          
           <ChatInfoPane onInfoPaneClose={() => setShowInfoPane(false)} />
         }
-        { chatTab === ChatPaneTab[ChatPaneTab.Files] &&
+        { currentTab === ChatPaneTab[ChatPaneTab.Files] &&
           <ChatFiles />
         }
       </div>

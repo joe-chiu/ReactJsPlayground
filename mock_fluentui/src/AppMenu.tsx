@@ -45,7 +45,6 @@ export const AppMenu = () => {
       <MenuTrigger disableButtonEnhancement>
         <Button appearance="transparent" icon={<MoreIcon />} />
       </MenuTrigger>
-
       <MenuPopover>
         <MenuList>
           <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>

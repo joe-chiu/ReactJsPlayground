@@ -37,7 +37,7 @@ export const CalendarTab = () => {
     <div className="flex flex-col w-full h-full bg-indigo-50">
       <div className="flex-none h-28 flex flex-col border-b border-slate-400">
         <div className="flex flex-row items-center">
-          <div className="bg-blue-200 p-1 m-4 h-8 w-8 rounded-md">
+          <div className="p-1 m-4 h-8 w-8 rounded-md bg-blue-200">
             <CalendarFilled color="white" fontSize={24} />
           </div>
           <div className="text-lg font-bold mr-10">
