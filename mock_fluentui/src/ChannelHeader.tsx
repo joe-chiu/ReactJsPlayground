@@ -38,12 +38,6 @@ const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
 const MeetNowIcon = bundleIcon(MeetNowFilled, MeetNowRegular);
 const CalendarAddIcon = bundleIcon(CalendarAddFilled, CalendarAddRegular);
 
-export interface TeamHeaderProps {
-  showOpenIcon?: boolean,
-  onTabSelect?: (tab: string) => void,
-  onInfoPaneToggle?: (infoPaneShown: boolean) => void,
-}
-
 const SplitVideoCallButton = () => {
   return (
     <Menu positioning="below-end">
@@ -61,11 +55,17 @@ const SplitVideoCallButton = () => {
   ); 
 };
 
-export const TeamHeader = ({showOpenIcon = false, ...props} : TeamHeaderProps) => {
-  const [infoPaneState, setInfoPaneState] = useState(showOpenIcon);
+export interface TeamHeaderProps {
+  showOpenIcon?: boolean,
+  onTabSelect?: (tab: string) => void,
+  onInfoPaneToggle?: (infoPaneShown: boolean) => void,
+}
+
+export const ChannelHeader = (props: TeamHeaderProps) => {
+  const [infoPaneState, setInfoPaneState] = useState(props.showOpenIcon);
   useEffect(() => {
-    setInfoPaneState(showOpenIcon);
-  }, [showOpenIcon])
+    setInfoPaneState(props.showOpenIcon);
+  }, [props.showOpenIcon])
 
   return (
     <div className="h-14 flex flex-row items-center pl-4 pr-4 border-b-2 border-blue-100">

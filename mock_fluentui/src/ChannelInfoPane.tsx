@@ -48,7 +48,7 @@ export interface InfoPaneProps {
   onInfoPaneClose?: () => void,
 }
 
-export const ChatInfoPane = (props: InfoPaneProps) => {
+export const ChannelInfoPane = (props: InfoPaneProps) => {
   const { inlineItems, overflowItems } = partitionAvatarGroupItems({
     items: names,
   });

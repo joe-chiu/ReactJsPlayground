@@ -14,8 +14,8 @@ import { ChatList } from "./ChatList";
 import { ChatPane } from "./ChatPane";
 import { CalendarTab } from "./CalendarTab";
 import { FilesTab } from "./FilesTab";
-import { TeamsList } from "./TeamsList";
-import { TeamsPane } from "./TeamsPane";
+import { ChannelList } from "./ChannelList";
+import { ChannelPane } from "./ChannelPane";
 
 enum TeamsTab {
   Activity,
@@ -41,10 +41,10 @@ const TeamsApp = () => {
             <ChatPane />
           }
           { activeApp === TeamsTab[TeamsTab.Teams] &&
-            <TeamsList />
+            <ChannelList />
           }
           { activeApp === TeamsTab[TeamsTab.Teams] &&
-            <TeamsPane />
+            <ChannelPane />
           }
           { activeApp === TeamsTab[TeamsTab.Calendar] &&
             <CalendarTab />

@@ -43,7 +43,7 @@ export const ChatList = () => {
           <TreeItem itemType="branch" value="recent">
             <TreeItemLayout><p className="text-sm">Recent</p></TreeItemLayout>
             <Tree>
-              <ChatListItem />
+              <ChatListItem displayName="John Doe" />
               <ChatListItem />
               <ChatListItem />
               <ChatListItem />

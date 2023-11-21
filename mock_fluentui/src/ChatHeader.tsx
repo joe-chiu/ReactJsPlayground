@@ -30,11 +30,11 @@ export interface ChatHeaderProps {
   onInfoPaneToggle?: (infoPaneShown: boolean) => void,
 }
 
-export const ChatHeader = ({showOpenIcon = true, ...props} : ChatHeaderProps) => {
-  const [infoPaneState, setInfoPaneState] = useState(showOpenIcon);
+export const ChatHeader = (props: ChatHeaderProps) => {
+  const [infoPaneState, setInfoPaneState] = useState(props.showOpenIcon);
   useEffect(() => {
-    setInfoPaneState(showOpenIcon);
-  }, [showOpenIcon])
+    setInfoPaneState(props.showOpenIcon);
+  }, [props.showOpenIcon])
 
   return (
     <div className="h-14 flex flex-row items-center pl-4 pr-4 border-b-2 border-blue-100">

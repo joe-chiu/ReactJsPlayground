@@ -35,18 +35,18 @@ export interface TeamsAvatarProps {
 	imageUrl?: string,
 }
 
-export const TeamsAvatar = ({
-  displayName = "Katri Athokas",
-  status = "available",
-  imageUrl = "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
-  }: TeamsAvatarProps) => {
+export const TeamsAvatar = (props: TeamsAvatarProps = {
+  displayName: "Katri Athokas",
+  status: "available",
+  imageUrl: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg"
+}) => {
 
   return (
     <Popover openOnHover={true} positioning={"below-start"}>
       <PopoverTrigger disableButtonEnhancement>
         <Avatar 
-          image={{ src: imageUrl }} 
-          badge={{ status: status }}
+          image={{ src: props.imageUrl }} 
+          badge={{ status: props.status }}
         />
       </PopoverTrigger>
       <PopoverSurface>
@@ -55,12 +55,12 @@ export const TeamsAvatar = ({
             <Avatar 
               size={72}
               className=""
-              image={{ src: imageUrl }} 
-              badge={{ status: status }}
+              image={{ src: props.imageUrl }} 
+              badge={{ status: props.status }}
             />
             <div className="flex flex-col pl-2 justify-center">
-              <div className="font-bold">{displayName}</div>
-              <div className="text-slate-700">{status}</div>
+              <div className="font-bold">{props.displayName}</div>
+              <div className="text-slate-700">{props.status}</div>
             </div>
           </div>
           <div className="flex flex-row pt-2">

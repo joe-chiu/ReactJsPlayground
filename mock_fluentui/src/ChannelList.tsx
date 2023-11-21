@@ -130,8 +130,7 @@ const TeamListPopoverMenu = ({group = "pinned"}) => {
   );
 };
 
-export const TeamsList = () => {
-
+export const ChannelList = () => {
   const teamItemStyle = useTeamItemStyles();
   const channelItemStype = useChannelItemStyles();
 
@@ -188,7 +187,6 @@ export const TeamsList = () => {
                   </TreeItem>
                 </Tree>
               </TreeItem>
-
             </Tree>
           </TreeItem>
         </Tree>        
