@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 
 import {
-  Avatar,
   Tab,
   TabList,
   Button,
   Menu,
   MenuTrigger,
-  MenuButtonProps,
   SplitButton,
   MenuPopover,
   MenuList,
@@ -80,7 +78,7 @@ export const TeamHeader = ({showOpenIcon = false, ...props} : TeamHeaderProps) =
         </div>
       </div>
       <div>
-        <TabList defaultSelectedValue="posts" 
+        <TabList defaultSelectedValue="Posts" 
           onTabSelect={(e, data) => props.onTabSelect && props.onTabSelect(data.value as string)} >
           <Tab value="Posts">
             <p className="">Posts</p>
