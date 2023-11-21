@@ -1,9 +1,9 @@
 import {
-  Avatar,
-  AvatarGroup,
-  AvatarGroupItem,
-  AvatarGroupPopover,
   Button,
+  Divider,
+  Tree,
+  TreeItem,
+  TreeItemLayout,
   partitionAvatarGroupItems,
 } from "@fluentui/react-components";
 
@@ -22,6 +22,7 @@ import {
   EditRegular,
   EditFilled,
 } from "@fluentui/react-icons";
+import { ChatListItem } from "./ChatListItem";
 
 const AlertIcon = bundleIcon(AlertFilled, AlertRegular);
 const LinkIcon = bundleIcon(LinkFilled, LinkRegular);
@@ -61,38 +62,50 @@ export const ChannelInfoPane = (props: InfoPaneProps) => {
           onClick={() => props.onInfoPaneClose && props.onInfoPaneClose()}
         />} />
       </div>
-      <div className="flex flex-row items-center p-2">
-        <Avatar
-            size={40}
-            image={{
-              src: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
-            }}
-          />
-        <div className="w-auto text-md pl-2 pr-2 font-bold">Weekend escape</div>
-        <Button size="small" appearance="transparent" icon={<EditIcon />} />
-      </div>
-      <div className="flex flex-col p-2 items-start">
-        <p className="font-bold pb-2">People (3)</p>
-        <AvatarGroup size={24}>
-          {inlineItems.map((name) => (
-            <AvatarGroupItem name={name} key={name} />
-          ))}
-          {overflowItems && (
-            <AvatarGroupPopover indicator="count">
-              {overflowItems.map((name) => (
-                <AvatarGroupItem name={name} key={name} />
-              ))}
-            </AvatarGroupPopover>
-          )}
-        </AvatarGroup>
-      </div>
-      <div className="grow flex flex-col items-start">
-        <p className="font-bold p-2">Options</p>
-        <Button size="small" appearance="transparent" icon={<AlertIcon />}>Mute</Button>
-        <Button size="small" appearance="transparent" icon={<LinkIcon />}>Copy link to chat</Button>
-        <Button size="small" appearance="transparent" icon={<AppsIcon />}>Manage apps</Button>
-        <Button size="small" appearance="transparent" icon={<LeaveIcon />}>Leave</Button>
-      </div>
+      <div className="text-md pl-2 pr-2 font-bold">In this channel</div>
+      <Divider className="max-h-6" />
+      <Tree aria-label="channel info" defaultOpenItems={["people", "description", "options", "updates"]}>
+        <TreeItem itemType="branch" value="people">
+          <TreeItemLayout><p className="text-sm">People (15)</p></TreeItemLayout>
+          <Tree>
+            <TreeItem itemType="leaf">
+              <TreeItemLayout>
+                <div>AvatarGroup</div>
+              </TreeItemLayout>
+            </TreeItem>
+          </Tree>
+        </TreeItem>
+        <TreeItem itemType="branch" value="description">
+        <TreeItemLayout><p className="text-sm">Description</p></TreeItemLayout>
+          <Tree>
+            <TreeItem itemType="leaf">
+              <TreeItemLayout>
+                <div>Channel description this and that</div>
+              </TreeItemLayout>
+            </TreeItem>
+          </Tree>
+        </TreeItem>
+        <TreeItem itemType="branch" value="options">
+        <TreeItemLayout><p className="text-sm">Options</p></TreeItemLayout>
+          <Tree>
+            <TreeItem itemType="leaf">
+              <TreeItemLayout>
+                <div>List of options</div>
+              </TreeItemLayout>
+            </TreeItem>
+          </Tree>
+        </TreeItem>
+        <TreeItem itemType="branch" value="updates">
+        <TreeItemLayout><p className="text-sm">Updates</p></TreeItemLayout>
+          <Tree>
+            <TreeItem itemType="leaf">
+              <TreeItemLayout>
+                <div>List of control messages</div>
+              </TreeItemLayout>
+            </TreeItem>
+          </Tree>
+        </TreeItem>
+      </Tree>        
     </div>
   );
 };
