@@ -1,35 +1,50 @@
 import { useState } from "react";
 
 import { 
-  Body1, 
+  Avatar,
   Button, 
-  Caption1, 
   Card, 
   CardFooter, 
   CardHeader, 
   CardPreview, 
+  Divider, 
+  Menu, 
+  MenuDivider, 
+  MenuItem, 
+  MenuList, 
+  MenuPopover, 
+  MenuTrigger, 
+  Toolbar, 
+  ToolbarButton, 
+  ToolbarDivider, 
   makeStyles, 
   shorthands 
 } from "@fluentui/react-components";
 
-import { 
-  ArrowReplyRegular, 
-  ShareRegular 
-} from "@fluentui/react-icons";
+import {
+  bundleIcon,
+  ArrowReplyDownRegular,
+  ArrowReplyDownFilled,
+  MoreHorizontalRegular,
+  MoreHorizontalFilled,
+  EmojiAddRegular,
+  EmojiAddFilled,
+  PinRegular,
+  PinFilled,
+  BookmarkRegular,
+  BookmarkFilled,
+  GlassesOffRegular,
+  GlassesOffFilled,
+} from "@fluentui/react-icons";   
 
-const customStyle = {
-  chatContainer: {
-    backgroundColor: "rgb(238 242 255)",
-    maxWidth: "none",
-  }
-};
+const MoreIcon = bundleIcon(MoreHorizontalFilled, MoreHorizontalRegular);
+const EmojiAddIcon = bundleIcon(EmojiAddFilled, EmojiAddRegular);
+const ReplyIcon = bundleIcon(ArrowReplyDownFilled, ArrowReplyDownRegular);
+const PinIcon = bundleIcon(PinFilled, PinRegular);
+const BookmarkIcon = bundleIcon(BookmarkFilled, BookmarkRegular);
+const GlassesOffIcon = bundleIcon(GlassesOffFilled, GlassesOffRegular);
 
-const resolveAsset = (asset: string) => {
-  const ASSET_URL =
-    "https://raw.githubusercontent.com/microsoft/fluentui/master/packages/react-components/react-card/stories/assets/";
-
-  return `${ASSET_URL}${asset}`;
-};
+import { TeamsAvatar } from "./TeamsAvatar";
 
 const useStyles = makeStyles({
   card: {
@@ -41,40 +56,72 @@ const useStyles = makeStyles({
   },
 });
 
+const MessageMenu = () => {
+  return (
+    <Toolbar aria-label="Default">
+      <ToolbarButton icon="&#128077;" />
+      <ToolbarButton icon="&#10084;&#65039;" />
+      <ToolbarButton icon="&#128518;" />
+      <ToolbarButton icon="&#128558;" />
+      <ToolbarButton aria-label="more reactions" icon={<EmojiAddIcon />} />
+      <ToolbarDivider />
+      <Menu>
+        <MenuTrigger>
+          <ToolbarButton aria-label="More" icon={<MoreIcon />} />
+        </MenuTrigger>
+        <MenuPopover>
+          <MenuList>
+            <MenuItem icon={<ReplyIcon />}>Reply</MenuItem>
+            <MenuItem icon={<PinIcon />}>Pin</MenuItem>
+            <MenuDivider />
+            <MenuItem icon={<BookmarkIcon />}>Save this message</MenuItem>
+            <MenuItem icon={<GlassesOffIcon />}>Mark as unread</MenuItem>
+          </MenuList>
+        </MenuPopover>
+      </Menu>
+    </Toolbar>
+  );
+};
+
 const Post = () => {
   const styles = useStyles();
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <Card className={styles.card}>
+    <Card className={styles.card} 
+      onMouseEnter={() => setShowMenu(true)}
+      onMouseLeave={() => setShowMenu(false)}
+    >
       <CardHeader
-        image={
-          <img
-            src={resolveAsset("avatar_elvia.svg")}
-            alt="Elvia Atkins avatar picture"
-          />
-        }
         header={
-          <Body1>
-            <b>Elvia Atkins</b> mentioned you
-          </Body1>
+          <div className="flex flex-row items-center w-full">
+            <TeamsAvatar />
+            <div className="pl-2">Patti Fernandez</div>
+            <div className="pl-2 text-xs text-slate-500">6/26 6:04 AM</div>
+            <div className="grow"></div>
+            <div className="flex-none h-8">
+              {showMenu &&
+              <MessageMenu />
+              }
+            </div>
+          </div>
         }
-        description={<Caption1>5h ago · About us - Overview</Caption1>}
       />
-
-      <CardPreview
-        logo={
-          <img src={resolveAsset("docx.png")} alt="Microsoft Word document" />
-        }
-      >
-        <img
-          src={resolveAsset("doc_template.png")}
-          alt="Preview of a Word document: About Us - Overview"
-        />
+      <CardPreview>
+        <p className="px-4">
+          Hi team! This site is the best place to collaborate on all things Mark 8. 
+          Please use this team site for doc repository, meeting notes, project discussions, 
+          and any team meetings. Welcome everyone!
+        </p>
       </CardPreview>
-
       <CardFooter>
-        <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
-        <Button icon={<ShareRegular fontSize={16} />}>Share</Button>
+        <div className="flex flex-col w-full">
+          <Divider className="h-6" />
+          <div>
+            <Avatar size={24} badge={{status: "available"}} />
+            <Button style={{minWidth: 0}} appearance="transparent">Reply</Button>
+          </div>
+        </div>
       </CardFooter>
     </Card>
   );
