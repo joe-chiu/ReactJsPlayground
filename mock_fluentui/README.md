@@ -14,5 +14,4 @@
  https://chrisbateman.github.io/webpack-visualizer/
 
  # Todo
-reaction
 settings, channel tab, activity tab, files tab

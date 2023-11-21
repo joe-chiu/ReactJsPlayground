@@ -51,7 +51,6 @@ export const UserMenu = () => {
                 <div className="text-xs font-bold">Taylor Swift</div>
                 <div className="text-2xs text-slate-500">taylor@gmail.com</div>
                 <div className="flex flex-row">
-
                   <Menu>
                     <MenuTrigger disableButtonEnhancement>
                       <p className="text-2xs pt-1 hover:text-indigo-400">Available</p>
@@ -69,7 +68,6 @@ export const UserMenu = () => {
                       </MenuList>
                     </MenuPopover>
                   </Menu>
-
                 </div>
               </div>
             </div>
