@@ -7,6 +7,8 @@ import {
   Button,
   Divider,
   Link,
+  Slot,
+  PresenceBadge,
 } from "@fluentui/react-components";
 
 import {
@@ -33,20 +35,18 @@ export interface TeamsAvatarProps {
 	displayName?: string,
 	status?: PresenceBadgeStatus,
 	imageUrl?: string,
+  badge?: Slot<typeof PresenceBadge>,
 }
 
-export const TeamsAvatar = (props: TeamsAvatarProps = {
-  displayName: "Katri Athokas",
-  status: "available",
-  imageUrl: "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg"
-}) => {
+export const TeamsAvatar = (props: TeamsAvatarProps) => {
 
   return (
     <Popover openOnHover={true} positioning={"below-start"}>
       <PopoverTrigger disableButtonEnhancement>
-        <Avatar 
+        <Avatar
+          size={36}
           image={{ src: props.imageUrl }} 
-          badge={{ status: props.status }}
+          badge={props.badge ? props.badge : { status: props.status }}
         />
       </PopoverTrigger>
       <PopoverSurface>

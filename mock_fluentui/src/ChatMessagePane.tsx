@@ -65,11 +65,11 @@ interface MessageMenuProps {
 	content: JSX.Element,
 }
 
-const MessageMenu = ({content}: MessageMenuProps) => {
+const MessageMenu = (props: MessageMenuProps) => {
   return (
     <Popover inline={true} openOnHover={true} positioning={"above-end"}>
       <PopoverTrigger disableButtonEnhancement>
-        {content}
+        {props.content}
       </PopoverTrigger>                
       <PopoverSurface style={{padding: 0}}>
         <Toolbar aria-label="Default">

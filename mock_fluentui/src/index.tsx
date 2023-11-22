@@ -16,6 +16,7 @@ import { CalendarTab } from "./CalendarTab";
 import { FilesTab } from "./FilesTab";
 import { ChannelList } from "./ChannelList";
 import { ChannelPane } from "./ChannelPane";
+import { ActivityTab } from "./ActivityTab";
 
 enum TeamsTab {
   Activity,
@@ -34,6 +35,9 @@ const TeamsApp = () => {
         <TopBar />
         <div className="grow flex flex-row min-h-0">
           <LeftNav onAppSelect={(app) => setActiveApp(app)} />
+          { activeApp === TeamsTab[TeamsTab.Activity] &&
+            <ActivityTab />
+          }
           { activeApp === TeamsTab[TeamsTab.Chat] &&
             <ChatList />
           }

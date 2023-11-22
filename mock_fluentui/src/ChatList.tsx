@@ -23,7 +23,7 @@ import { ChatListItem } from "./ChatListItem";
 
 export const ChatList = () => {
   return (
-    <div className="flex flex-col w-72 bg-blue-100 shadow-lg">
+    <div className="flex flex-col w-80 bg-blue-100 drop-shadow-xl">
       <div id="chatListHeader" className="flex-none h-14 flex flex-row items-center gap-2 p-3">
         <p className="grow w-52 text-lg font-bold">Chat</p>
         <Button size="medium" appearance="transparent" className="h-8" icon={<FilterIcon />} />

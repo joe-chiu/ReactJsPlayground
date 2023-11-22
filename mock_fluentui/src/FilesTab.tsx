@@ -16,7 +16,7 @@ import {
 export const FilesTab = () => {
   return (
     <div id="filesTab" className="grow flex flex-row bg-indigo-50">
-      <div id="filesList" className="flex-none w-72 flex flex-col shadow-lg">
+      <div id="filesList" className="flex-none w-80 flex flex-col shadow-lg">
         <div id="fileListHeader" className="flex-none h-14 flex flex-row items-center gap-2 p-3">
           <p className="grow w-52 text-lg font-bold">Files</p>
         </div>
