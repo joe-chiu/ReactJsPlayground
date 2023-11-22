@@ -70,39 +70,30 @@ export interface ActivityItemProps {
   unread? : boolean,
 }
 
-export const ActivityItem = ({
-  type = "chatMention",
-  reason = "Adele mentioned you",
-  imageUrl = "https://fabricweb.azureedge.net/fabric-website/assets/images/avatar/KatriAthokas.jpg",
-  preview = "Hey, could you take a look at this",
-  topic = "Chat with Adele",
-  timestamp = "11:40 AM",
-  unread = false,
-  }: ActivityItemProps) => {
-
+export const ActivityItem = (props: ActivityItemProps) => {
   const customStyle = useCustomStyles();
   const [hover, setHover] = useState(false);
   
   return (
-    <TreeItem itemType="leaf">
+    <TreeItem value={JSON.stringify(props)} itemType="leaf">
       <TreeItemPersonaLayout
         className={customStyle.root}
         main={{
           className: customStyle.main,
           children:
-            <div className={`flex flex-row items-baseline ${unread && "font-bold"}`}>
+            <div className={`flex flex-row items-baseline ${props.unread && "font-bold"}`}>
               <div className="flex flex-col">
-                <p className="">{reason}</p>
-                <p className="text-sm line-clamp-1">{preview}</p>
+                <p className="">{props.reason}</p>
+                <p className="text-sm line-clamp-1">{props.preview}</p>
               </div>
               {!hover &&
-              <p className="text-xs text-slate-700">{timestamp}</p>
+              <p className="text-xs text-slate-700">{props.timestamp}</p>
               }
             </div>					
         }}
         media={
           <TeamsAvatar 
-            imageUrl={imageUrl} 
+            imageUrl={props.imageUrl} 
             badge={{icon: 
               <MentionRegular 
                 fontSize={16} color="red" />
@@ -112,7 +103,7 @@ export const ActivityItem = ({
         description={{
           className: customStyle.description,
           children:
-            <p className={`line-clamp-1 text-xs text-slate-700 ${unread && "font-bold"}`}>{topic}</p>
+            <p className={`line-clamp-1 text-xs text-slate-700 ${props.unread && "font-bold"}`}>{props.topic}</p>
         }}
         actions={
           <FeedPopoverMenu />
