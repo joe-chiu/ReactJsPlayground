@@ -55,7 +55,7 @@ export const ChannelInfoPane = (props: InfoPaneProps) => {
   });
 
   return (
-    <div className="w-60 flex flex-col border-l-2 border-blue-100">
+    <div className="flex-none w-60 flex flex-col border-l-2 border-blue-100">
       <div className="ml-auto">
         <Button 
           size="small" appearance="transparent" icon={<DismissIcon 

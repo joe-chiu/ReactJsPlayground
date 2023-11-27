@@ -344,6 +344,77 @@ export const GetChatFilesTableColumns = (): TableColumnDefinition<Item>[] => {
   ];  
 };
 
+export type TeamsUser = {
+  id: number;
+  displayName: string;
+  email: string;  
+}
+
+export const GetUsers = (): TeamsUser[] => {
+  return [
+    {
+      id: 1,
+      displayName: "Alex Mercer",
+      email: "byteBard@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+    {
+      id: 1,
+      displayName: "",
+      email: "@email.com"
+    },
+  ]
+};
+
 export const GetChatFilesTableItems = (): Item[] => {
   return [
     {

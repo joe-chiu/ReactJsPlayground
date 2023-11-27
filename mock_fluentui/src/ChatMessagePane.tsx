@@ -103,13 +103,9 @@ export const ChatMessagePane = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(GetHistoryChatMessagesScroll());
   const onRenderMessage = (messageProps: MessageProps, defaultOnRender?: MessageRenderer): JSX.Element => {
     const chatMessage = messageProps.message as ChatMessage;
-    if (!chatMessage.mine) {
-      return (
-        <MessageMenu content={defaultOnRender ? defaultOnRender(messageProps) : <></>} />
-      );
-    }
-
-    return defaultOnRender ? defaultOnRender(messageProps) : <></>;
+    return (
+      <MessageMenu content={defaultOnRender ? defaultOnRender(messageProps) : <></>} />
+    );
   };
 
   return (
@@ -122,6 +118,7 @@ export const ChatMessagePane = () => {
             messages={messages}
             styles={customStyle}
             onRenderMessage={onRenderMessage}
+            disableEditing={true}
           />
         </FluentThemeProvider>
       </div>

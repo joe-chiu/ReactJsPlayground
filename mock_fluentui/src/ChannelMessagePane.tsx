@@ -49,8 +49,9 @@ import { TeamsAvatar } from "./TeamsAvatar";
 const useStyles = makeStyles({
   card: {
     ...shorthands.margin("auto"),
+    minWidth: "300px",
     width: "720px",
-    maxWidth: "1536px",
+    maxWidth: "1000px",
     minHeight: 0,
     marginBottom: "16px",
   },
